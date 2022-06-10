@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body >
+    <p id="coś"></p>
+    <p><i id="time"></i></p>
+    <br />
+    <input type="date" id="r">
+    <button onclick="Data()">Licz</button><br /><p></p><br/>
+    <p  >Dni: </p>
+    <p  id="k"></p>
+    <p >    Godziny: </p>
+    <p  id="g"></p>
+    <p id="dzien"></p>
+    
+    <script>
+      
+        let a;
+        let time;
+        setInterval(() => {
+            a = new Date();
+            time = '   ' + a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+            document.getElementById('time').innerHTML = time;
+        }, 1000);
+ 
+        
+        
+        function Data() {
+
+            let date = new Date();
+            let data1 = new Date(document.getElementById("r").value);
+
+            let minus = date - data1;
+            dni = Math.floor(minus / (1000 * 60 * 60 * 24 ));
+            dni2 = Math.floor(minus / (1000 * 60 * 60 ));
+            
+            
+
+            let now = data1;
+            let days = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
+
+            
+            document.getElementById('dzien').innerHTML = `Dzień tygodnia: ${ days[now.getDay()] }`;
+
+
+            
+            document.getElementById('j').innerHTML = dni;
+            document.getElementById('g').innerHTML = dni2;
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
